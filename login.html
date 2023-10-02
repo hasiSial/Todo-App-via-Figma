@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login Page</title>
+</head>
+
+<style>
+
+.heading{
+	text-align: center;
+	margin-top: 10%;
+}
+
+.heading h1{
+	font-size: 45px;
+	font-weight: 700;
+}
+
+input{
+	padding: 18px 0;
+	padding-right: 20%;
+	padding-left: 20px;
+	border-radius: 5px;
+	border: 2px solid #EDEDED;
+	background: #F6F6F6;
+	margin-bottom: 20px;
+}
+
+::placeholder {
+	font-size: 20px;
+    color: #BDBDBD;
+    opacity: 1; 
+}
+
+/* .form h5{
+	position: relative;
+	bottom: 95px;
+	left: 180px;
+	font-weight: 500;
+	font-size: 22px;
+} */
+
+#toggle-btn{
+	background: #F6F6F6;
+	position: relative;
+	left: 170px;
+	bottom: 63px;
+	font-weight: 500;
+	font-size: 22px;
+	border: none;
+	cursor: pointer;
+}
+
+#login{
+	padding: 13px 200px;
+	position: relative;
+	top: 15px;
+	border-radius: 25px;
+	border: none;
+	background-color: #000;
+	color: #fff;
+	font-weight: 500;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+</style>
+
+
+<body>
+
+<div class="heading">
+	<h1>Log In</h1>
+	<form id="login-form">
+		<input type="text" id="username" placeholder="username" required>
+		<br>
+		<input type="password" id="password" placeholder="password" required>
+		<br>
+		<button type="button" id="toggle-btn"> Show </button>
+		<br>
+
+		<button type="submit" id="login">Log in</button>	
+    </form>
+</div>
+</body>
+
+<script>
+	
+let username = document.getElementById("username");
+let passwordInput = document.getElementById("password");
+let login = document.getElementById("login");
+let toggleButton = document.getElementById("toggle-btn")
+
+toggleButton.addEventListener("click", function () {
+    if(passwordInput.type === "password") {
+            passwordInput.type = "text";
+            toggleButton.textContent = "Hide";
+        }else{
+            passwordInput.type = "password";
+            toggleButton.textContent = "Show";
+            }
+});
+
+
+document.getElementById("login-form").addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent the form from submitting
+
+            // Get the entered username and password
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // Check the username and password (you can replace this with your authentication logic)
+            if (username === "haseeb" && password === "haseeb1234") {
+                // Redirect to the new page after successful login
+                window.location.href = "file:///C:/Users/Laptop%20Land/Desktop/engimatix/LMS%20Project/figma/task.html"; // Replace with your page URL
+            } else {
+                alert("Invalid username or password. Please try again.");
+            }
+        });
+
+</script>
+
+</html>

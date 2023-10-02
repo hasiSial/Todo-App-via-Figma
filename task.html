@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<title>Task-page</title>
+</head>
+
+<style>
+
+*{
+	margin: 0;
+
+}
+
+a{
+	text-decoration: none;
+}
+
+li{
+	list-style: none;
+
+}
+
+.active{
+	background: black;
+	color: white;
+	padding: 15px 55px 15px 30px;
+	margin-top: 20px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+
+.notactive{
+	/* background: gray; */
+	color: black;
+	padding: 15px 55px 15px 30px;
+	margin-top: 20px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
+}
+
+.row {
+	display: flex;
+	justify-content: flex-start;
+	margin-top: 30px;
+}
+
+i{
+	padding-right: 20px;
+}
+
+.row-date{
+	display: flex;
+	justify-content: space-between;
+}
+
+.btn i{
+	margin-left: 50px;
+	font-size: 22px;
+	cursor: pointer;
+
+}
+
+.btn button{
+	margin-top: 400px;
+	border: none;
+	background: white;
+	color: black;
+	font-weight: 500;
+	font-size: 22px;
+	letter-spacing: 1px;
+	cursor: pointer;
+	position: relative;
+	right: 10px;
+}
+
+
+.col-2{
+	margin-left: 100px;
+}
+
+.col-2 button{
+	margin-top: 25px;
+	background-color: white;
+	border: none;
+	font-weight: 600;
+	font-size: 28px;
+	letter-spacing: 1.5px;
+	color: #575767;
+	cursor: pointer;
+}
+
+.col-2 h4{
+	color: #575767;
+	font-weight: 600;
+	font-size: 22px;
+	letter-spacing: 1px;
+	margin-left: 10px;
+	margin-top: 20px;
+}
+
+
+.data input[type=checkbox] {
+    margin: 4px 0 0;
+    position: relative;
+    top: 5px;
+    left: 10px;
+    margin-top: 30px;
+    margin-right: 25px;
+    line-height: normal;
+    width: 25px;
+    height: 25px;
+}
+
+.data label{
+	font-size: 25px;
+	font-weight: 500;
+	color: #575767;
+}
+
+.data  li{
+	list-style: none;
+}
+
+.data span i{
+	position: relative;
+	left: 15px;
+	margin-left: 38px;
+	/* color: gray; */
+	color: #DD4341;
+}
+
+.data #dateee{
+	color: gray
+}
+
+
+.col-row-2{
+	margin-top: 50px;
+	margin-bottom: 20px;
+}
+.col-row-2 h4{
+	color: #575767;
+	font-weight: 600;
+	font-size: 35px;
+	letter-spacing: 1px;
+	margin-left: 10px;
+	margin-top: 20px;
+}
+
+.col-row-2 label{
+	color: #B9B9BE;
+	font-size: 22px;
+}
+
+/* side notification section css */
+
+#notifi-data{
+	display: flex;
+	justify-content: space-between;
+	position: absolute;
+	top: 40px;
+	left: 68%;
+	padding: 30px 30px;
+	border-width: 2px;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+}
+
+
+#notifi-data h3{
+	color: black;
+	font-weight: 600;
+	font-size: 23px;
+}
+
+#notifi-data p{
+	color: #575767;
+	margin-top: 8px;
+	font-size: 20px;
+}
+
+#notifi-data span{
+	background-color: #FABB18;
+	padding: 22px 7px;
+	border-radius: 10px;
+	margin-left: 20px;
+	position: relative;
+	top: 10px;
+}
+
+#notifi-data span i{
+	position: relative;
+	left: 10px;
+	top: 3px;
+	font-size: 25px;
+}
+
+#notifi-btn{
+	background: #F6F5F5;
+	padding: 5px 0;
+	position: relative;
+	bottom: 450px;
+	left: 32.4%;
+	margin: 0 35.5%;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+}
+
+#notifi-btn button{
+	cursor: pointer;
+	font-size: 18px;
+	font-weight: 500;
+	background: transparent;
+	border: none;
+	position: relative;
+	left: 53%;
+}
+
+/* popup section css */
+
+.add-task{
+	padding: 80px 0;
+	position: relative;
+	bottom: 700px;
+	background-color: rgba(0, 0, 0, 0.7);
+
+}
+
+.task-info{
+	border-radius: 8px;
+	margin: 40px 310px;
+	padding: 50px 100px;
+	background-color: white;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.add-task h4{
+	color: black;
+	font-weight: 600;
+	font-size: 25px;
+
+}
+
+.data-field{
+	 margin-top: 40px;
+}
+
+.data-field span{
+	color: gray;
+	font-size: 20px;
+
+}
+.data-field>input{
+	border: none;
+	outline: none;
+	font-size: 20px;
+	color: gray;
+}
+
+
+.add-task hr{
+	color: #EBEBEB;
+	margin-top: 15px;
+}
+
+.add-task-btn{
+	display: grid;
+	place-items: center;
+}
+
+.add-task-btn #save{
+	margin-top: 30px;
+	padding: 13px 200px;
+	position: relative;
+	top: 15px;
+	border-radius: 25px;
+	border: none;
+	background-color: #000;
+	color: #fff;
+	font-weight: 500;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+.add-task-btn #cancel{
+	margin-top: 30px;
+	background-color: transparent;
+	color: black;
+	border: none;
+	font-weight: 500;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+	
+</style>
+
+<body>
+<div class="row">
+	<div class="col-1">
+		<a href="file:///C:/Users/Laptop%20Land/Desktop/engimatix/LMS%20Project/figma/task.html"><li class="active"><i class="fa-regular fa-clipboard"></i>Task</li></a>
+		<a href="file:///C:/Users/Laptop%20Land/Desktop/engimatix/LMS%20Project/figma/location-page.html"><li class="notactive"><i class="fa-solid fa-location-dot"></i>Location</li></a>
+		<div class="btn">
+		<button type="button" id="logout"><span><i class="fa-solid fa-arrow-right-from-bracket"></i></span>logout</button>
+	    </div>
+    </div>
+
+	<div class="col-2">
+		<button id="add-task-btn">+ Add new task</button>
+		<h4>Incomplete</h4>
+		<div class="data">
+			<!-- <input type="checkbox" name="">
+			<label>Submit my resume</label> -->
+		</div>
+
+<!-- complete section html -->
+
+	<div class="col-row-2">
+		<h4>Complete</h4>
+		<div id="CompleteSection" class="data">
+			<!-- <input type="checkbox" name="">
+			<label>Submit my resume</label> -->
+		</div>
+		
+	  </div>
+		
+	</div>
+</div>
+
+<!-- side notification section html -->
+
+<div class="notification">
+	<div id="notifi-data">
+		<div class="text">
+        <h3>Submit my resume</h3>
+        <p>Send my resume to DigitalTolk</p>
+        </div>
+        <div class="icon">
+        <span><i class="fa-regular fa-clock"></i></span>
+        </div>
+	</div>
+    <div id="notifi-btn">
+		<button type="">Skip</button>
+		<button type="">Remaind me</button>
+	</div>
+	
+</div>
+
+<!-- popup html section -->
+
+
+<div id="add-task-info" class="add-task">
+	<div class="task-info">
+	<h4>New Task</h4>
+	<div class="add-task-data">
+		<div class="data-field">
+		<span><i class="fa-regular fa-comment"></i></span>
+		<input id="Summary" type="text" placeholder="Summary">
+		<hr>
+	    </div>
+	    <div class="data-field">    
+		<span><i class="fa-solid fa-align-right"></i></span>
+		<input type="text" placeholder="Description">
+		<hr>
+	    </div>
+	    <div class="data-field">
+		<span><i class="fa-regular fa-clock"></i></span>
+		<input id="date" type="date" placeholder="Due Date">
+		<hr>
+	    </div>
+		<div class="add-task-btn">
+			<button id="save">Save</button>
+			<br>
+			<button id="cancel">Cancel</button>
+		</div>	
+	</div>
+	</div>
+</div>
+
+
+<script>
+
+// logout functionlality 
+
+let logout = document.getElementById("logout");
+
+logout.addEventListener("click",()=>{
+	window.location.href = "file:///C:/Users/Laptop%20Land/Desktop/engimatix/LMS%20Project/figma/login.html?";
+});
+
+// add new task popup & cancel popup
+
+
+let popup = document.getElementById("add-task-info");
+popup.style.display = "none";
+
+document.getElementById("add-task-btn").addEventListener("click",()=>{
+	popup.style.display = "block";
+});
+
+
+
+document.getElementById("cancel").addEventListener("click",()=>{
+	popup.style.display = "none";
+});
+
+
+// add task into task Task-page
+
+// area where data display
+let displayData = document.querySelector(".data");
+let displayDataInComplete = document.getElementById("CompleteSection");
+
+
+document.getElementById("save").addEventListener("click",()=>{
+	let getTaskData = document.querySelector("#Summary");
+    let getDate = document.querySelector("#date");
+	let disData = getTaskData.value;
+	let listItem = document.createElement("li");
+	
+    listItem.innerHTML = `
+       <input type="checkbox" class="checkBox">
+	   <label>${disData}</label>
+	   <br>
+	   <span><i class="fa-regular fa-clock"></i></span>
+	   <label id="dateee">${getDate.value}</label>
+	   
+    `
+
+    displayData.appendChild(listItem);
+
+
+    getDate.value = ""
+    getTaskData.value = ""
+    popup.style.display = "none";
+
+})
+
+
+// code for complete section
+
+
+displayData.addEventListener("click",(e)=>{
+	if(e.target.classList.contains("checkBox"))
+		displayDataInComplete.appendChild(e.target.parentElement);
+})
+
+displayDataInComplete.addEventListener("click",(e)=>{
+	if(e.target.classList.contains("checkBox"))
+		displayData.appendChild(e.target.parentElement);
+})
+
+
+	
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Location page</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<style>
+
+*{
+	margin: 0;
+
+}
+
+/* side button css */
+
+a{
+	text-decoration: none;
+}
+
+li{
+	list-style: none;
+
+}
+
+.active{
+	background: black;
+	color: white;
+	padding: 15px 55px 15px 30px;
+	margin-top: 20px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+
+.notactive{
+	background: transparent;
+	color: black;
+	padding: 15px 55px 15px 30px;
+	margin-top: 20px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
+}
+
+.row {
+	display: flex;
+	justify-content: flex-start;
+	margin-top: 30px;
+}
+
+i{
+	padding-right: 20px;
+}
+
+
+.btn i{
+	margin-left: 50px;
+	font-size: 22px;
+	cursor: pointer;
+
+}
+
+.btn button{
+	margin-top: 400px;
+	border: none;
+	background: white;
+	color: black;
+	font-weight: 500;
+	font-size: 22px;
+	letter-spacing: 1px;
+	cursor: pointer;
+	position: relative;
+	right: 10px;
+}
+
+/* current location section css  */
+
+.col-2{
+	margin-left: 100px;
+}
+
+.col-2 button{
+	margin-top: 25px;
+	background-color: white;
+	border: none;
+	font-weight: 600;
+	font-size: 28px;
+	letter-spacing: 1.5px;
+	color: #575767;
+	cursor: pointer;
+}
+
+.col-2 h4{
+	color: #575767;
+	font-weight: 600;
+	font-size: 28px;
+	letter-spacing: 1px;
+	margin-left: 10px;
+	margin-top: 20px;
+}
+
+.data{
+	margin-top: 25px;
+}
+
+.data i{
+	color: #DD4341;
+	margin-left: 20px;
+}
+
+.data li{
+	list-style: none;
+	margin-left: 48px;
+	color: #B9B9BE;
+	font-size: 18px;
+	font-weight: 500;
+	margin-top: 5px;
+}
+
+.data label{
+	font-size: 25px;
+	font-weight: 500;
+	color: #575767;
+	position: relative;
+	right: 5px;
+}
+
+.col-row-2{
+	margin-top: 50px;
+	margin-bottom: 20px;
+}
+
+
+.col-row-2 h4{
+	color: #575767;
+	font-weight: 600;
+	font-size: 28px;
+	letter-spacing: 1px;
+	margin-left: 10px;
+	margin-top: 20px;
+}
+
+/* css for popup */
+
+
+.add-task{
+	padding: 170px 0;
+	position: relative;
+	bottom: 700px;
+	background-color: rgba(0, 0, 0, 0.7);
+
+}
+
+.task-info{
+	border-radius: 8px;
+	margin: 40px 310px;
+	padding: 50px 100px;
+	background-color: white;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.add-task h4{
+	color: black;
+	font-weight: 600;
+	font-size: 25px;
+
+}
+
+.data-field{
+	 margin-top: 40px;
+}
+
+.data-field span{
+	color: gray;
+	font-size: 20px;
+
+}
+.data-field>input{
+	border: none;
+	outline: none;
+	font-size: 20px;
+	color: gray;
+}
+
+
+.add-task hr{
+	color: #EBEBEB;
+	margin-top: 15px;
+}
+
+.add-task-btn{
+	display: grid;
+	place-items: center;
+}
+
+.add-task-btn #save{
+	margin-top: 30px;
+	padding: 13px 200px;
+	position: relative;
+	top: 15px;
+	border-radius: 25px;
+	border: none;
+	background-color: #000;
+	color: #fff;
+	font-weight: 500;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+.add-task-btn #cancel{
+	margin-top: 30px;
+	background-color: transparent;
+	color: black;
+	border: none;
+	font-weight: 500;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+#previousLocationData{
+	position: relative;
+	right: 45px;
+}
+
+	
+</style>
+
+<body>
+
+<!-- New Loction Section -->
+
+<div class="row">
+	<div class="col-1">
+		<a href="file:///C:/Users/Laptop%20Land/Desktop/engimatix/LMS%20Project/figma/task.html"><li class="notactive"><i class="fa-regular fa-clipboard"></i>Task</li></a>
+		<a href="file:///C:/Users/Laptop%20Land/Desktop/engimatix/LMS%20Project/figma/location-page.html"><li class="active"><i class="fa-solid fa-location-dot"></i>Location</li></a>
+		<div class="btn">
+		<button type="button" id="logout"><span><i class="fa-solid fa-arrow-right-from-bracket"></i></span>logout</button>
+	    </div>
+    </div>
+	<div class="col-2">
+		<button id="iddLocationBtn" type="">+ Check In</button>
+		<h4>Current location</h4>
+		<div id="currentLocationData" class="data">
+			<i class="fa-solid fa-map-pin"></i>
+			<label>Pustegrand, Stockholm, SE</label>
+			<li>59.3292° N, 18.0686° E</li>
+		</div>
+
+		<!-- Previous location Section -->
+
+	<div class="col-row-2">
+		<h4>Previous location</h4>
+		<div id="previousLocationData" class="data">
+			<!-- <i class="fa-solid fa-map-pin"></i>
+			<label>Pustegrand, Stockholm, SE</label>
+			<li>59.3292° N, 18.0686° E</li> -->
+		</div>	
+
+	  </div>
+		
+	</div>
+	
+</div>
+
+<!-- popup for add location -->
+
+<div id="add-task-info" class="add-task">
+	<div class="task-info">
+	<h4>Add Loction</h4>
+	<div class="add-task-data">
+		<div class="data-field">
+		<span><i class="fa-solid fa-map-pin"></i></span>
+		<input id="cityName" type="text" placeholder="Put City Name">
+		<hr>
+	    </div>
+
+		<div class="add-task-btn">
+			<button id="save">Save</button>
+			<br>
+			<button id="cancel">Cancel</button>
+		</div>	
+	</div>
+	</div>
+</div>
+
+<script>
+
+// logout functionlality 
+
+let logout = document.getElementById("logout");
+
+logout.addEventListener("click",()=>{
+	window.location.href = "file:///C:/Users/Laptop%20Land/Desktop/engimatix/LMS%20Project/figma/login.html?";
+});	
+
+
+
+// show popup
+
+
+
+let addTask = document.getElementById("add-task-info");
+addTask.style.display = "none";
+
+document.getElementById("iddLocationBtn").addEventListener("click",()=>{
+	addTask.style.display = "block";
+})
+
+// cancel popup Js code
+
+document.getElementById("cancel").addEventListener("click",()=>{
+	addTask.style.display = "none";
+});
+
+
+// add location into current location
+
+
+
+const cityName = document.getElementById("cityName");
+const currentLocationData = document.getElementById("currentLocationData");
+const previousLocationData = document.getElementById("previousLocationData");
+
+    // Load previous locations from local storage on page load
+const previousLocations = JSON.parse(localStorage.getItem("locations")) || [];
+
+    // Display previous locations in the "Previous Locations" section
+displayPreviousLocations();
+
+let saveBtn = document.getElementById("save");
+
+saveBtn.addEventListener("click",()=>{
+	let cityData = cityName.value;
+
+	const apiKey = "0d95959fc6e14bab8f153db536e292d3";
+    const url = `https://api.opencagedata.com/geocode/v1/json?q=${cityData}&key=${apiKey}`;
+
+    fetch(url).then(response => response.json()).then(data=>{
+    	if (data.results.length > 0) {
+                const result = data.results[0];
+                const components = result.components;
+                const geometry = result.geometry;
+
+        currentLocationData.innerHTML = `
+                <i class="fa-solid fa-map-pin"></i>
+			    <label>${components.city}, ${components.country}</label>
+			    <li>${geometry.lat}, ${geometry.lng}</li>
+            `
+        cityName.value = "";
+
+        addTask.style.display = "none"; 
+
+        previousLocations.unshift({
+                city: components.city,
+                country: components.country,
+                latitude: geometry.lat,
+                longitude: geometry.lng,
+            });
+        localStorage.setItem("locations", JSON.stringify(previousLocations));
+
+//                     // Display the updated list of previous locations
+            displayPreviousLocations();
+
+            }else{
+            	alert("Location data not found for the entered city.");
+            }
+
+    }).catch(error => {
+                console.error("Error fetching data:", error);
+                alert("An error occurred while fetching data. Please try again later.");
+            });
+})
+
+
+    function displayPreviousLocations() {
+    previousLocationData.innerHTML = "";
+    previousLocations.forEach(location => {
+        const listItem = document.createElement("li");
+        listItem.innerHTML = `<i class="fa-solid fa-map-pin"></i><label>${location.city}, ${location.country}</label>  <li> ${location.latitude}, ${location.longitude} </li>`;
+        previousLocationData.appendChild(listItem);
+    });
+}
+
+
+
+</script>
+
+
+</body>
+</html>
